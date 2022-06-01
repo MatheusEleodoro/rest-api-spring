@@ -72,6 +72,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.withExpiresAt(new Date(System.currentTimeMillis() + WebConfig.EXPIRATION))
 				.sign(HMAC512(WebConfig.SECRET.getBytes()));
 
+		response.addHeader("Authorization", WebConfig.TOKEN_PREFIX +  token);
 		ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
 		var res = loginService.efetuarLogin(
 				authResult.getPrincipal().toString(),
@@ -84,7 +85,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(objectWriter.writeValueAsString(res.getBody()));
 		response.setStatus(res.getStatusCodeValue());
-		response.addHeader("Authorization", WebConfig.TOKEN_PREFIX +  token);
 		response.getWriter().flush();
 	}
 
