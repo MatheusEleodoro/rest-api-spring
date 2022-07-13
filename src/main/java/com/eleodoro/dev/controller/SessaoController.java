@@ -1,11 +1,6 @@
 package com.eleodoro.dev.controller;
-
 import com.eleodoro.dev.form.RequestForm;
-import com.eleodoro.dev.form.ResultStatus;
-import com.eleodoro.dev.model.Sessao;
-import com.eleodoro.dev.model.Usuario;
 import com.eleodoro.dev.service.SessaoService;
-import com.eleodoro.dev.service.UsuarioService;
 import com.eleodoro.dev.utils.FilterCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

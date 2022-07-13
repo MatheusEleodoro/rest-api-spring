@@ -2,6 +2,7 @@ package com.eleodoro.dev.controller;
 
 import com.eleodoro.dev.form.RequestForm;
 import com.eleodoro.dev.form.ResultStatus;
+import com.eleodoro.dev.model.GitRepositorio;
 import com.eleodoro.dev.model.Usuario;
 import com.eleodoro.dev.service.UsuarioService;
 import com.eleodoro.dev.utils.FilterCriteria;
@@ -29,5 +30,11 @@ public class UsuarioController {
     public ResultStatus incluir(@RequestBody RequestForm form)
     {
         return service.saveUsuario(form);
+    }
+
+    @GetMapping("pesquisarUsuarioRepositorio")
+    public ResponseEntity<List<GitRepositorio>> gitRepository(@RequestParam String usuario)
+    {
+        return service.getRepositorios(usuario);
     }
 }

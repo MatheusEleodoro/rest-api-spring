@@ -24,4 +24,8 @@ public interface Servant {
 
     @Transactional
     public ResultStatus deletar(RequestForm form, Authentication auth);
+
+    default void Teste(){
+        System.out.println("TESTE");
+    }
 }

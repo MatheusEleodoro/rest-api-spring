@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +26,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
+@EnableScheduling
 @EnableGlobalMethodSecurity(
 		prePostEnabled = true, 
 		securedEnabled = true, 
@@ -60,6 +62,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter implements WebMvcCon
 		
 		 // configuração de acesso as rotas
 		.antMatchers(HttpMethod.POST, "/main/api/grafico").permitAll()
+				.antMatchers("/pesquisarUsuarioRepositorio").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		
