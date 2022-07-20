@@ -1,4 +1,4 @@
-package br.triadsystems.filter;
+package com.eleodoro.dev.utils;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
